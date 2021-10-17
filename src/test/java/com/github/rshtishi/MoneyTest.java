@@ -24,8 +24,28 @@ public class MoneyTest {
          - CurrencyMoneyIllegalArgumentException
      */
     @Test(expected = IllegalArgumentException.class)
-    public void constructorShouldThrowIllegalAmountException(){
-        Money money = new Money(-1,"");
+    public void constructorShouldThrowIllegalAmountException() {
+        Money money = new Money(-1, "");
+    }
+
+    @Test
+    public void constructorShouldThrowIllegalAmountArgumentException() {
+        try {
+            Money money = new Money(-1, "");
+        } catch (IllegalArgumentException exception) {
+            String expectedExceptionMessage = "illegal amount: [-1]";
+            assertEquals(expectedExceptionMessage, exception.getMessage());
+        }
+    }
+
+    @Test
+    public void constructorShouldThrowIllegalCurrencyException() {
+        try {
+            Money money = new Money(5, "");
+        } catch (IllegalArgumentException exception) {
+            String expectedExceptionMessage = "illegal currency: []";
+            assertEquals(expectedExceptionMessage, exception.getMessage());
+        }
     }
 
 }
