@@ -16,4 +16,16 @@ public class MoneyTest {
         assertEquals("USD", money.getCurrency());
     }
 
+    /*
+        In this test we are not able to determine if the invalid argument exception is because
+        of amount or currency being invalid.
+        This could be fixed by creating customer exception class like below:
+         - AmountMoneyIllegalArgumentException
+         - CurrencyMoneyIllegalArgumentException
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void constructorShouldThrowIllegalAmountException(){
+        Money money = new Money(-1,"");
+    }
+
 }
