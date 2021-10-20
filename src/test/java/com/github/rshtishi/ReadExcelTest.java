@@ -1,7 +1,5 @@
 package com.github.rshtishi;
 
-import junitparams.FileParameters;
-import junitparams.mappers.CsvWithHeaderMapper;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.loader.LoaderType;
