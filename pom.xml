@@ -43,6 +43,12 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.easetech</groupId>
+            <artifactId>easytest-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
