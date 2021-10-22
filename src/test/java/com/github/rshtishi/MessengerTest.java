@@ -18,7 +18,6 @@ Test Doubles types:
 - dummy object(used only as an input parameter to another method)
 - stub(takes care of the indirect inputs of a class)
 - test spy(also take in indirect outputs)
-- mock( also take in indirect outputs)
  */
 public class MessengerTest {
 
