@@ -25,9 +25,19 @@ public class BankClientTest {
         when(validator.validate(anyDouble())).thenReturn(true);
         when(validator.validate(anyString())).thenReturn(true);
         whenNew(Validator.class).withNoArguments().thenReturn(validator);
-        BankAccount bankAccount = bankClient.openBankAccount(5,"USD");
+        BankAccount bankAccount = bankClient.openBankAccount(5, "USD");
         verifyNew(Validator.class).withNoArguments();
         assertNotNull(bankAccount);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowExceptionWhenInvalidArgumentAreProvided() throws Exception {
+        BankClient bankClient = new BankClient();
+        Validator validator = mock(Validator.class);
+        when(validator.validate(anyDouble())).thenReturn(false);
+        when(validator.validate(anyString())).thenReturn(false);
+        whenNew(Validator.class).withNoArguments().thenReturn(validator);
+        BankAccount bankAccount = bankClient.openBankAccount(5, "USD");
     }
 
 }
