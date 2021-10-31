@@ -4,7 +4,7 @@
 
 - SUT(System Under Test)
 
-```aidl
+```
     public Money(int amount, String currency) {
         if (amount < 0) {
             throw new IllegalArgumentException("illegal amount: [" + amount + "]");
@@ -19,7 +19,7 @@
 
 - Client
 
-```aidl
+```
     @Test
     public void constructorShouldSetAmountAndCurrency() {
         Money money = new Money(10, "USD");
@@ -30,7 +30,7 @@
 
 ### Testing Exceptions
 
-```aidl
+```
     @Test
     public void constructorShouldThrowIllegalAmountArgumentException() {
         try {
@@ -46,7 +46,7 @@
 
 - Reading input from method
 
-```aidl
+```
 @RunWith(JUnitParamsRunner.class)
 public class MoneyParameterizedTest {
 
@@ -71,7 +71,7 @@ public class MoneyParameterizedTest {
 
 - Reading input from CSV file
 
-```aidl
+```
 @RunWith(JUnitParamsRunner.class)
 public class ReadCSVJUnitParamsTes {
 
@@ -87,7 +87,7 @@ public class ReadCSVJUnitParamsTes {
 
 - Reading input from Excel file
 
-```aidl
+```
 @RunWith(DataDrivenTestRunner.class)
 public class ReadExcelTest {
 
@@ -103,7 +103,7 @@ public class ReadExcelTest {
 
 ### Using the Rule to implement test case for non-functional requirements
 
-```aidl
+```
 public class TimeoutTest {
 
     @Rule
@@ -125,7 +125,7 @@ public class TimeoutTest {
 
 - SUT 
 
-```aidl
+```
 public class MailService {
 
     private DeliveryPlatform platform;
@@ -149,7 +149,7 @@ public class MailService {
 
 - Client
 
-```aidl
+```
 @RunWith(MockitoJUnitRunner.class)
 public class MailServiceTest {
 
@@ -181,7 +181,7 @@ public class MailServiceTest {
 
 - SUT
 
-```aidl
+```
     public BankAccount openBankAccount(double amount, String currency) {
         Validator validator = new Validator();
         if (validator.validate(amount) && validator.validate(currency)) {
@@ -194,7 +194,7 @@ public class MailServiceTest {
 
 - Client
 
-```aidl
+```
     @Test
     public void shouldOpenBankAccountSuccessfully() throws Exception {
         BankClient bankClient = new BankClient();
@@ -211,7 +211,7 @@ public class MailServiceTest {
 
 - SUT
 
-```aidl
+```
 public class AverageCalculator {
 
     public double compute(int num1,int num2) {
@@ -227,7 +227,7 @@ public class AverageCalculator {
 
 - Client
 
-```aidl
+```
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(AverageCalculator.class)
 public class AverageCalculatorTest {
@@ -249,7 +249,7 @@ public class AverageCalculatorTest {
 
 - SUT
 
-```aidl
+```
 public class SMS {
 
     public String format(String message) {
@@ -261,7 +261,7 @@ public class SMS {
 
 - Client
 
-```aidl
+```
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Utils.class)
 public class SMSTest {
