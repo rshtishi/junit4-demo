@@ -1,10 +1,12 @@
 package com.github.rshtishi;
 
+import java.util.concurrent.atomic.AtomicLong;
+
 public class AtomicIdGenerator {
 
-    private static Long nextId = System.currentTimeMillis();
+    private static AtomicLong nextId = new AtomicLong(System.currentTimeMillis());
 
     public Long getNextId(){
-        return nextId++;
+        return nextId.incrementAndGet();
     }
 }
