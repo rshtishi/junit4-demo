@@ -1,4 +1,4 @@
-package com.github.rshtishi.doc;
+package com.github.rshtishi;
 
 public class AverageCalculator {
 

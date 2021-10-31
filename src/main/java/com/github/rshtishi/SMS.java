@@ -1,4 +1,6 @@
-package com.github.rshtishi.doc;
+package com.github.rshtishi;
+
+import com.github.rshtishi.doc.Utils;
 
 public class SMS {
 

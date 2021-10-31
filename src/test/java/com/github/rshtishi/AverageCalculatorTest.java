@@ -1,5 +1,6 @@
-package com.github.rshtishi.doc;
+package com.github.rshtishi;
 
+import com.github.rshtishi.AverageCalculator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
