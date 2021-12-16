@@ -1,6 +1,7 @@
 package com.github.rshtishi;
 
 import com.github.rshtishi.AverageCalculator;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -15,6 +16,7 @@ import static org.powermock.api.support.membermodification.MemberMatcher.method;
 @PrepareForTest(AverageCalculator.class)
 public class AverageCalculatorTest {
 
+    @Ignore
     @Test
     public void calculateTheAverageSuccessfully() throws Exception {
         AverageCalculator averageCalculator = spy(new AverageCalculator());

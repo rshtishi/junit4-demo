@@ -2,6 +2,7 @@ package com.github.rshtishi;
 
 import com.github.rshtishi.SMS;
 import com.github.rshtishi.doc.Utils;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -16,6 +17,7 @@ public class SMSTest {
 
     public static final String MSG = "Are you ok?";
 
+    @Ignore
     @Test
     public void testFormatSMS(){
         SMS sms = new SMS();

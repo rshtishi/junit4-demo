@@ -3,6 +3,7 @@ package com.github.rshtishi;
 
 import com.github.rshtishi.doc.BankAccount;
 import com.github.rshtishi.doc.Validator;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
@@ -18,6 +19,7 @@ import static org.powermock.api.mockito.PowerMockito.*;
 @RunWith(PowerMockRunner.class)
 public class BankClientTest {
 
+    @Ignore
     @Test
     public void shouldOpenBankAccountSuccessfully() throws Exception {
         BankClient bankClient = new BankClient();
@@ -30,6 +32,7 @@ public class BankClientTest {
         assertNotNull(bankAccount);
     }
 
+    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowExceptionWhenInvalidArgumentAreProvided() throws Exception {
         BankClient bankClient = new BankClient();
