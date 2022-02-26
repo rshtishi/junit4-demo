@@ -10,8 +10,13 @@ public class MoneyTest {
     Test Class (MoneyTest) -> SUT(Money)
      */
     @Test
-    public void constructorShouldSetAmountAndCurrency() {
-        Money money = new Money(10, "USD");
+    public void constructorShouldSetAmountAndCurrencyWhenInputValuesAreCorrect() {
+        //setup
+        int amount = 10;
+        String currency ="USD";
+        //execute
+        Money money = new Money(amount, currency);
+        //verify
         assertEquals(10, money.getAmount());
         assertEquals("USD", money.getCurrency());
     }
@@ -25,16 +30,18 @@ public class MoneyTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void constructorShouldThrowIllegalAmountException() {
-        Money money = new Money(-1, "");
+
+        Money money = new Money(5, "");
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void constructorShouldThrowIllegalAmountArgumentException() {
         try {
             Money money = new Money(-1, "");
         } catch (IllegalArgumentException exception) {
             String expectedExceptionMessage = "illegal amount: [-1]";
             assertEquals(expectedExceptionMessage, exception.getMessage());
+            throw exception;
         }
     }
 
