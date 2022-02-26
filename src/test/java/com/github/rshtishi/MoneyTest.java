@@ -45,13 +45,14 @@ public class MoneyTest {
         }
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void constructorShouldThrowIllegalCurrencyException() {
         try {
             Money money = new Money(5, "");
         } catch (IllegalArgumentException exception) {
             String expectedExceptionMessage = "illegal currency: []";
             assertEquals(expectedExceptionMessage, exception.getMessage());
+            throw exception;
         }
     }
 
