@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(DataDrivenTestRunner.class)
-public class ReadExcelTest {
+public class DiscountCalculatorParameterizedExcelTest {
 
     @Test
     @DataLoader(filePaths = {"test-data.xls"}, loaderType = LoaderType.EXCEL)
