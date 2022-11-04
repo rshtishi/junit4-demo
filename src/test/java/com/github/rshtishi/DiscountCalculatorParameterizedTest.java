@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 @RunWith(JUnitParamsRunner.class)
-public class ReadCSVJUnitParamsTest {
+public class DiscountCalculatorParameterizedTest {
 
     @Test
     @FileParameters(value = "classpath:test-data.csv", mapper = CsvWithHeaderMapper.class)
