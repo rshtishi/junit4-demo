@@ -28,14 +28,22 @@ public class MessengerTest {
     //invoked with given email and message content
     @Test
     public void shouldSendEmail() {
+        //setup
         Template template = mock(Template.class); //dummy
+
         Client client = mock(Client.class); //stub
-        MailServer mailServer = mock(MailServer.class); //test spy
-        TemplateEngine templateEngine = mock(TemplateEngine.class); // stub
-        Messenger sut = new Messenger(mailServer, templateEngine);
         when(client.getEmail()).thenReturn(CLIENT_EMAIL);
+
+        TemplateEngine templateEngine = mock(TemplateEngine.class); // stub
         when(templateEngine.prepareMessage(client, template)).thenReturn(MSG_CONTENT);
+
+        MailServer mailServer = mock(MailServer.class); //test spy
+
+        Messenger sut = new Messenger(mailServer, templateEngine);
+
+       //execute
         sut.sendMessage(client, template);
+        //verify
         verify(mailServer).send(CLIENT_EMAIL, MSG_CONTENT);
     }
 

@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 @RunWith(JUnitParamsRunner.class)
 public class DiscountCalculatorParameterizedCSVTest {
 
+
     @Test
     @FileParameters(value = "classpath:test-data.csv", mapper = CsvWithHeaderMapper.class)
     public void shouldCalculateDiscount(double value, double expectedResult) {

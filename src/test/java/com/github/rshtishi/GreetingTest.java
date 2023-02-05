@@ -26,21 +26,29 @@ public class GreetingTest {
     @Test
     @Parameters(method = "morningHours")
     public void shouldSayGoodMorningInTheMorning(int hour) {
+        //setup
         TimeProvider timeProviderMock = mock(TimeProvider.class);
         when(timeProviderMock.getTime()).thenReturn(getCalendar(hour));
         Greeting greeting = new Greeting(timeProviderMock);
+        //execute
+        String result = greeting.greet();
+        //verify
         String expected = "Good morning!";
-        assertEquals(expected, greeting.greet());
+        assertEquals(expected, result);
     }
 
     @Test
-    @Parameters(method="afternoonHours")
-    public void shouldSayGoodAfternoonInTheNoon(int hour){
+    @Parameters(method = "afternoonHours")
+    public void shouldSayGoodAfternoonInTheNoon(int hour) {
+        //setup
         TimeProvider timeProviderMock = mock(TimeProvider.class);
         when(timeProviderMock.getTime()).thenReturn(getCalendar(hour));
         Greeting greeting = new Greeting(timeProviderMock);
+        //execute
+        String result = greeting.greet();
+        //verify
         String expected = "Good afternoon!";
-        assertEquals(expected, greeting.greet());
+        assertEquals(expected, result);
     }
 
     private Calendar getCalendar(int hour) {
