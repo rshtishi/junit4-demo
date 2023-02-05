@@ -14,7 +14,15 @@ public class MoneyParameterizedTest {
         return new Object[]{
                 new Object[]{10, "EUR"},
                 new Object[]{20, "USD"},
-                new Object[]{30, "ALL"}
+                new Object[]{30, "ALL"},
+        };
+    }
+
+    public static final Object[] getInvalidAmountTestData(){
+        return new Object[]{
+                new Object[]{-1,""},
+                new Object[]{-5,"EUR"},
+                new Object[]{-8, null}
         };
     }
 
@@ -24,6 +32,18 @@ public class MoneyParameterizedTest {
         Money money = new Money(amount,currency);
         assertEquals(amount,money.getAmount());
         assertEquals(currency,money.getCurrency());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    @Parameters(method="getInvalidAmountTestData")
+    public void constructorShouldThrowInvalidAmountExcption(int amount, String currency){
+        try{
+
+        } catch(Exception e){
+            String expectedMessage = "";
+            //assertequal
+            throw e;
+        }
     }
 
 }
