@@ -28,4 +28,22 @@ public class Money2Test {
         assertEquals(currency, money.getCurrency());
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void constructorShouldThrowIllegalCurrencyArgument(){
+        //setup
+        int amount = 5;
+        String currency = "NNN";
+        CurrencyDAO currencyDAOMock = mock(CurrencyDAO.class);
+        when(currencyDAOMock.getValidCCY()).thenReturn(Arrays.asList("ALL","EUR"));
+        //execute
+        try{
+            Money2 money = new Money2(amount,currency,currencyDAOMock);
+        } catch(IllegalArgumentException e){
+            //verify
+            String expectedMessage = "illegal currency: [" + currency + "]";
+            assertEquals(expectedMessage, e.getMessage());
+            throw e;
+        }
+    }
+
 }
