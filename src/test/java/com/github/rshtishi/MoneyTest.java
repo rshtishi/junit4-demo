@@ -29,7 +29,7 @@ public class MoneyTest {
          - CurrencyMoneyIllegalArgumentException
      */
     @Test(expected = IllegalArgumentException.class)
-    public void constructorShouldThrowIllegalAmountException() {
+    public void constructorShouldThrowIllegalAmountException()  {
 
         Money money = new Money(5, "");
     }

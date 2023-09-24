@@ -18,32 +18,53 @@ public class MoneyParameterizedTest {
         };
     }
 
-    public static final Object[] getInvalidAmountTestData(){
+    public static final Object[] getInvalidAmountTestData() {
         return new Object[]{
-                new Object[]{-1,""},
-                new Object[]{-5,"EUR"},
+                new Object[]{-1, ""},
+                new Object[]{-5, "EUR"},
                 new Object[]{-8, null}
+        };
+    }
+
+    public static final Object[] getInvalidCurrencyTestData() {
+        return new Object[]{
+                new Object[]{5, ""},
+                new Object[]{2, null}
         };
     }
 
     @Test
     @Parameters(method = "getTestData")
     public void constructorShouldSetAmountAndCurrency(int amount, String currency) {
-        Money money = new Money(amount,currency);
-        assertEquals(amount,money.getAmount());
-        assertEquals(currency,money.getCurrency());
+        Money money = new Money(amount, currency);
+        assertEquals(amount, money.getAmount());
+        assertEquals(currency, money.getCurrency());
     }
 
     @Test(expected = IllegalArgumentException.class)
-    @Parameters(method="getInvalidAmountTestData")
-    public void constructorShouldThrowInvalidAmountExcption(int amount, String currency){
-        try{
+    @Parameters(method = "getInvalidAmountTestData")
+    public void constructorShouldThrowInvalidAmountExcption(int amount, String currency) {
+        try {
 
-        } catch(Exception e){
+        } catch (Exception e) {
             String expectedMessage = "";
             //assertequal
             throw e;
         }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    @Parameters(method = "getInvalidCurrencyTestData")
+    public void constructorShouldThrowIllegalCurencyException(int amount, String currency) {
+        try {
+            //execute
+            Money money = new Money(amount, currency);
+        } catch (IllegalArgumentException e) {
+            String expectedMessage = "illegal currency: [" + currency + "]";
+            assertEquals(expectedMessage, e.getMessage());
+            throw e;
+        }
+
     }
 
 }

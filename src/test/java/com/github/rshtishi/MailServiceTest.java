@@ -28,7 +28,9 @@ public class MailServiceTest {
 
     @Test
     public void testSendMailSuccessfully(){
+        //execute
         emailService.send("x@email.com","Hi","Wish you the best",false);
+        //verify
         verify(platform).deliver(emailCaptor.capture());
         Email emailCaptorValue = emailCaptor.getValue();
         assertEquals("x@email.com",emailCaptorValue.getTo());

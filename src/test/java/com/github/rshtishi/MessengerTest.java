@@ -33,7 +33,6 @@ public class MessengerTest {
 
         Client client = mock(Client.class); //stub
         when(client.getEmail()).thenReturn(CLIENT_EMAIL);
-
         TemplateEngine templateEngine = mock(TemplateEngine.class); // stub
         when(templateEngine.prepareMessage(client, template)).thenReturn(MSG_CONTENT);
 
