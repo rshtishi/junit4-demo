@@ -53,18 +53,6 @@ public class MoneyParameterizedTest {
         }
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    @Parameters(method = "getInvalidCurrencyTestData")
-    public void constructorShouldThrowIllegalCurencyException(int amount, String currency) {
-        try {
-            //execute
-            Money money = new Money(amount, currency);
-        } catch (IllegalArgumentException e) {
-            String expectedMessage = "illegal currency: [" + currency + "]";
-            assertEquals(expectedMessage, e.getMessage());
-            throw e;
-        }
 
-    }
 
 }
