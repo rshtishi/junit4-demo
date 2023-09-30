@@ -1,15 +1,30 @@
 package com.github.rshtishi;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class Money2Test {
 
+    private  CurrencyDAO currencyDAO;
+
+    @Before
+    public void setup(){
+        List<String> allowedCCY = Arrays.asList("EUR","ALL");
+        currencyDAO = mock(CurrencyDAO.class);
+        when(currencyDAO.getValidCCY()).thenReturn(allowedCCY);
+        Money2.setCurrencyDAO(currencyDAO);
+    }
+
+    @Test
     public void whenAmountANdCCYisValidThenCreateMoney() {
         //setup
-        CurrencyDAO currencyDAO = null; //mock it
-        when(currencyDAO.getValidCCY()).thenReturn(null);
-        Money2.setCurrencyDAO(currencyDAO);
         int amount = 0;
         String ccy = "EUR";
         // execute
@@ -17,6 +32,11 @@ public class Money2Test {
         //verify
         assertEquals(amount, money.getAmount());
         assertEquals(ccy, money.getCurrency());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowNotValidCCYWhenCCYisNotInTheAllowedList(){
+        //TO DO
     }
 
 }
