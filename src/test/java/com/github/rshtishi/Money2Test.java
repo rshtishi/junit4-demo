@@ -36,7 +36,15 @@ public class Money2Test {
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldThrowNotValidCCYWhenCCYisNotInTheAllowedList(){
-        //TO DO
+        //setup
+        int amount = 5;
+        try{
+            Money2 money2 = Money2.getInstance(amount, "USD");
+        } catch(IllegalArgumentException e){
+            String expectedMessage = "The currency: [USD] is not allowed";
+            assertEquals(expectedMessage,e.getMessage());
+            throw e;
+        }
     }
 
 }
