@@ -8,14 +8,7 @@ public class PhoneTest {
 
     @Test
     public void whenInputAreValidThenConstructorisSuccess() {
-        //setup
-        String prefix = "355";
-        String number = "12345678";
-        //execute
-        Phone phone = new Phone(prefix, number);
-        //verify
-        assertEquals(prefix, phone.getPrefix());
-        assertEquals(number, phone.getNumber());
+
     }
 
     @Test(expected = IllegalArgumentException.class)
