@@ -13,7 +13,7 @@ public class DiscountCalculatorParameterizedCSVTest {
 
 
     @Test
-    @FileParameters(value = "classpath:test-data.csv", mapper = CsvWithHeaderMapper.class)
+    @FileParameters(value = "classpath:test-data.csv")
     public void shouldCalculateDiscount(double value, double expectedResult) {
         //setup
         DiscountCalculator discountCalculator = new DiscountCalculator();
